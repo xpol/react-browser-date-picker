@@ -1,6 +1,6 @@
 {
   "name": "react-browser-date-picker",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A react date picker use the brower provided date control.",
   "author": "xpol",
   "license": "MIT",
@@ -57,5 +57,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "memoize-one": "^5.0.0"
+  }
 }

@@ -15,12 +15,19 @@ npm install --save react-browser-date-picker
 ```jsx
 import React, { Component } from 'react'
 
-import MyComponent from 'react-browser-date-picker'
+import DatePicker from 'react-browser-date-picker'
 
 class Example extends Component {
   render () {
     return (
-      <MyComponent />
+      <DatePicker
+        type="month"
+        frameClass={"frame"}
+        controlClass={"control"}
+        placeholderClass={"placeholder"}
+        value={month}
+        onChange={this.handleOnChange}
+      />
     )
   }
 }

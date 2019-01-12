@@ -1,8 +1,58 @@
-/* add css styles here (optional) */
+.container {
+  position: relative;
+}
 
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+.placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+
+  pointer-events: none;
+
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.visible {
+  opacity: 100;
+}
+
+.input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+.input:hover {
+  opacity: 100;
+}
+
+
+.fallback {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.devider {
+  width: 0.5em;
+  height: 1em;
+}
+
+.select {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
 }
