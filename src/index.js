@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import memoize from 'memoize-one'
 import cx from 'classnames'
@@ -132,8 +132,28 @@ export default class DatePicker extends PureComponent {
     return parts[index]
   }
 
+  get value() {
+    return this.props.value || ''
+  }
+
+  get year() {
+    const {year} = this.state
+    return year || ''
+  }
+
+  get month() {
+    const {month} = this.state
+    return month || ''
+  }
+
+  get date() {
+    const {date} = this.state
+    return date || ''
+  }
+
   render() {
-    const {type, frameClass, controlClass, placeholderClass, placeholder, value} = this.props
+    const {type, frameClass, controlClass, placeholderClass, placeholder} = this.props
+    const value = this.value
 
     if (InputTypeSupport[type]) {
       return (
@@ -152,17 +172,40 @@ export default class DatePicker extends PureComponent {
         </div>
       )
     } else {
-      const {year, month} = this.state
       return (
         <div className={cx(styles.fallback, frameClass)}>
           <span className={placeholderClass}>{placeholder}</span>
           <span className={styles.devider} />
-          <Range className={controlClass} start={YEAR} end={YEAR - 100} value={year} onChange={this.handleDatePartChange('year')} />年
+          <Range
+            className={controlClass}
+            start={YEAR}
+            end={YEAR - 100}
+            value={this.year}
+            onChange={this.handleDatePartChange('year')}
+          />
+          年
           <span className={styles.devider} />
-          <Range className={controlClass} start={1} end={12} value={month} onChange={this.handleDatePartChange('month')} />月
-          {type === 'date' && <span className={styles.devider} />}
-          {type === 'date' && <Range className={controlClass} start={1} end={31} value={month} onChange={this.handleDatePartChange('date')} /> }
-          {type === 'date' && '日'}
+          <Range
+            className={controlClass}
+            start={1}
+            end={12}
+            value={this.month}
+            onChange={this.handleDatePartChange('month')}
+          />
+          月
+          {type === 'date' &&
+          <Fragment>
+            <span className={styles.devider} />
+            <Range
+              className={controlClass}
+              start={1}
+              end={31}
+              value={this.date}
+              onChange={this.handleDatePartChange('date')}
+            />
+            日
+          </Fragment>
+          }
         </div>
       )
     }
