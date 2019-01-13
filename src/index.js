@@ -83,7 +83,8 @@ export default class DatePicker extends PureComponent {
   }
 
   static defaultProps = {
-    type: 'date'
+    type: 'date',
+    value: ''
   }
 
   state = {}
