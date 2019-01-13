@@ -1,6 +1,6 @@
 {
   "name": "react-browser-date-picker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A react date picker use the brower provided date control.",
   "author": "xpol",
   "license": "MIT",
